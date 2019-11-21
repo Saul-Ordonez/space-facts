@@ -12,7 +12,7 @@ import './styles.css';
 })();
 
 const getElements = function(response) {
-  $('#marsPhotos').attr("src", response.photos[16].img_src);
+  $('#marsPhotos').attr("src", response.photos[12].img_src);
 };
 
 
@@ -44,7 +44,6 @@ $(document).ready(function(){
     let endDayInput = parseInt($('input#endDay').val());
     let endMonthInput = parseInt($('input#endMonth').val());
     let endYearInput = parseInt($('input#endYear').val());
-    console.log(startDayInput);
     event.preventDefault();
     (async () => {
       let asteroidFinder = new AsteroidFinder();
@@ -53,7 +52,11 @@ $(document).ready(function(){
     })();
 
     const getElements3 = function(response3) {
-      $('#asteroid').text(response3.element_count);
+      if (response3.element_count) {
+        $('#asteroid').text(response3.element_count);
+      } else {
+        $('#asteroid').text(response3.error_message);
+      }
     };
 
   });
