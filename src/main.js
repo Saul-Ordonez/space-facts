@@ -1,4 +1,4 @@
-import { MarsPhoto, DailyPhoto } from  './backend.js';
+import { MarsPhoto, DailyPhoto, AsteroidFinder } from  './backend.js';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -29,4 +29,32 @@ const getElements2 = function(response2) {
   $('#dailyPhotos').attr('src', response2.url);
 };
 
-// Promise.all([getElements, getElements2]);
+
+
+
+
+
+
+
+$(document).ready(function(){
+  $('form#asteroid1').submit(function(event){
+    let startDayInput = parseInt($('input#startDay').val());
+    let startMonthInput = parseInt($('input#startMonth').val());
+    let startYearInput = parseInt($('input#startYear').val());
+    let endDayInput = parseInt($('input#endDay').val());
+    let endMonthInput = parseInt($('input#endMonth').val());
+    let endYearInput = parseInt($('input#endYear').val());
+    console.log(startDayInput);
+    event.preventDefault();
+    (async () => {
+      let asteroidFinder = new AsteroidFinder();
+      const response3 = await asteroidFinder.getAsteroidFinder(startYearInput, startMonthInput, startDayInput, endYearInput, endMonthInput, endDayInput);
+      getElements3(response3);
+    })();
+
+    const getElements3 = function(response3) {
+      $('#asteroid').text(response3.element_count);
+    };
+
+  });
+});
