@@ -12,7 +12,7 @@ import './styles.css';
 })();
 
 const getElements = function(response) {
-  $('#marsPhotos').attr("src", response.photos[12].img_src);
+  $('#marsPhotos').attr("src", response.photos[4].img_src);
 };
 
 
@@ -53,6 +53,7 @@ $(document).ready(function(){
 
     const getElements3 = function(response3) {
       if (response3.element_count) {
+        $('.asteroidOutput').show();
         $('#asteroid').text(response3.element_count);
       } else {
         $('#asteroid').text(response3.error_message);

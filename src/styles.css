@@ -11,3 +11,7 @@ background-color: #f5ea6e;
 #dailyDesc, #dailyPhotos, #marsPhotos{
   width: 500px;
 }
+
+.asteroidOutput {
+  display: none;
+}

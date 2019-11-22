@@ -12,7 +12,7 @@ export class MarsPhoto {
 
 export class DailyPhoto {
   async getDailyPhoto() {
-    let response2 = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.daily_photo}&date=2019-10-10`);
+    let response2 = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.API_KEY}&date=2019-10-10`);
 
     let jsonifiedResponse2 = await response2.json();
     return jsonifiedResponse2;
@@ -23,7 +23,7 @@ export class DailyPhoto {
 export class AsteroidFinder {
   async getAsteroidFinder(startYearInput, startMonthInput, startDayInput, endYearInput, endMonthInput, endDayInput) {
     try {
-      let response3 = await fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startYearInput}-${startMonthInput}-${startDayInput}&end_date=${endYearInput}-${endMonthInput}-${endDayInput}&api_key=${process.env.asteroid_key}`);
+      let response3 = await fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startYearInput}-${startMonthInput}-${startDayInput}&end_date=${endYearInput}-${endMonthInput}-${endDayInput}&api_key=${process.env.API_KEY}`);
       let jsonifiedResponse3 = await response3.json();
       return jsonifiedResponse3;
     } catch(error) {

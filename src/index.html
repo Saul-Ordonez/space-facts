@@ -36,6 +36,7 @@
     </div>
     <div class="row">
       <div class="col-md-6">
+        <h2>Enter a starting date:</h2>
         <form id = "asteroid1">
           <label>Year</label>
           <input type="text" id = "startYear">
@@ -45,6 +46,7 @@
           <input type="text" id = "startDay">
         </div>
         <div class="col-md-6">
+          <h2>Enter an ending date:</h2>
           <label>Year</label>
           <input type="text" id = "endYear">
           <label>Month</label>
@@ -55,7 +57,9 @@
       </div>
       <button type="submit">Submit</button>
     </form>
-    <h2 id = "asteroid"></h2>
+    <div class="asteroidOutput">
+      <h2><span id="asteroid"></span> asteroids were in near earth orbit.</h2>
+    </div>
   </div>
   <br>
   <br>
